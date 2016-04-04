@@ -1,18 +1,19 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+#require 'omniauth-google-oauth2'
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '3b73a5c571a3345c2e9d491be0b256e8b44a6a7223b37801b6ae0fc2055f92c3f5131f235d0b57cae60047f3b1df483a3d6c07037012abe003633b79ff2b884e'
+  # config.secret_key = '93e6e81b81d2e7e705e87e4c516934e9b68deaf091637eaafbacfc4d3e59c23c155b9e18d53cc1c8746d7096e5ec6fb3105789352054bf6c2fadba35b19f4721'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'oleg.starosvitskij@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -64,7 +65,7 @@ Devise.setup do |config|
   # config.http_authenticatable = false
 
   # If 401 status code should be returned for AJAX requests. True by default.
-  # config.http_authenticatable_on_xhr = true
+  config.http_authenticatable_on_xhr = true
 
   # The realm used in Http Basic Authentication. 'Application' by default.
   # config.http_authentication_realm = 'Application'
@@ -99,10 +100,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '3542efc087e03b5343852af8a523b1f1714ed447e37e604a6b0b540836f8b24b681db918d0b2801599e29934498c9b9769f962df69a68bb12f906e7e1d64452d'
-
-  # Send a notification email when the user's password is changed
-  # config.send_password_change_notification = false
+  # config.pepper = '89362696d53d4f06b370ed23a38c2923415643e7716440ea55c2161129d58e29f0742410e6acf3778e1dd3134acdc48346ec1438ac6509601ad630f216091940'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -145,7 +143,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 8..72
+  config.password_length = 1..72
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -156,6 +154,9 @@ Devise.setup do |config|
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
   # config.timeout_in = 30.minutes
+
+  # If true, expires auth token on session timeout.
+  # config.expire_auth_token_on_timeout = false
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
@@ -228,17 +229,30 @@ Devise.setup do |config|
   #
   # If you have any extra navigational formats, like :iphone or :mobile, you
   # should add them to the navigational formats lists.
-  #
+  config.http_authenticatable_on_xhr = false
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html]
+  #config.navigational_formats = ['*/*', :html, :json, :js]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
-
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :digitalocean, "f1afae871d3d78372b574eb58873706a8697e5e2efb1de1235cce7e99d5de13d", "c06e6343501471b4a17e1b39e99cd6555e9e89e56d416675cb91764b0d9afc4a",
+                callback_url: "CALLBACK_URL"
+
+  config.omniauth :google_oauth2, "911017061680-qpuv9iqftmqrgnhb9ka4ljr84v6epfms.apps.googleusercontent.com", "5l1nduBuGZNt1hY29o6XcZU2", callback_url: "CALLBACK_URL"
+  # When using OmniAuth, Devise cannot automatically set OmniAuth path,
+    #config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
+    #config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET']
+
+  config.secret_key = '51f08becd85a4c9a2c281de00ff4d9f184d66ad6aa60c0e02149ff5b38640d5267ac76071677612ba4e82a81e92567fc295b234cca7c55f31763201e089d84a5'
+
+  #config.omniauth :twitter, ENV["TWITTER_CONSUMER_KEY"], ENV["TWITTER_CONSUMER_SECRET"]
+  #config.omniauth :facebook, "583655635116766", "63fc69642a0f838635fc93382daa85f4", callback_url: "CALLBACK_URL"
+  
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
