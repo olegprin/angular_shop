@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_create :user_first
  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable#,
-     #:omniauthable, :omniauth_providers => [:digitalocean,:google_oauth2, :facebook]
+         :recoverable, :rememberable, :trackable, :validatable,:omniauthable, :omniauth_providers => [:digitalocean,:google_oauth2, :facebook]
 
         
 

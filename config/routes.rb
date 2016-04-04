@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  devise_for :users#, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   put "voices/:increase_id" => "voices#increase", :as => "voices_increase"
   put "voices/:decrease_id" => "voices#decrease", :as => "voices_decrease"
