@@ -444,6 +444,8 @@ private
       'contact'
     when 'print'
       'print'
+     when 'minus'
+      'minus'  
     else
       shortcut
     end

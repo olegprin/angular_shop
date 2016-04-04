@@ -66,15 +66,11 @@ var Caption = new Array(); // don't change this
 // equal the number of Captions!
 
 Picture[1]  = '/assets/1.jpg';
-Picture[2]  = '/assets/11.gif';
-Picture[3]  = '/assets/11.jpg';
-Picture[4]  = 'Image004.jpg';
-Picture[5]  = 'Image005.jpg';
-Picture[6]  = 'Image006.jpg';
-Picture[7]  = 'Image007.jpg';
-Picture[8]  = 'Image008.jpg';
-Picture[9]  = 'Image009.jpg';
-Picture[10] = 'Image010.jpg';
+Picture[2]  = '/assets/2.png';
+Picture[3]  = '/assets/3.jpg';
+Picture[4]  = '/assets/4.jpeg';
+Picture[5]  = '/assets/5.jpeg';
+Picture[6]  = '/assets/6.jpg';
 
 // Specify the Captions...
 // To add more captions, just continue
@@ -90,10 +86,7 @@ Caption[3]  = "This is the third caption.";
 Caption[4]  = "This is the fourth caption.";
 Caption[5]  = "This is the fifth caption.";
 Caption[6]  = "This is the sixth caption.";
-Caption[7]  = "This is the seventh caption.";
-Caption[8]  = "This is the eighth caption.";
-Caption[9]  = "This is the ninth caption.";
-Caption[10] = "This is the tenth caption.";
+
 
 // =====================================
 // Do not edit anything below this line!

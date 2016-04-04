@@ -1015,15 +1015,21 @@ color:      #123456;
 
 
 
-div .title_product {padding-down:10px} 
-div .image_product {padding-top:10px}
-
- div .like_and_dislike {padding-left: 60px
-
- }
+div .title_product {padding-down:10px;font-size: 20px;} 
+div .image_product {padding-top:10px;}
 
 
-div .like_dislike_id {padding-left: 150px;}
+
+div .like_and_dislike {padding-left: 60px;padding-top: 10px;padding-bottom: 10px;
+}
+ div .like_dislike_id {padding-left: 150px;padding-top: 10px;padding-bottom: 10px;
+}
+
+
+
+div .tovar {padding-down:10px;font-size: 20px;} 
+
+
 
 div .image_cart {padding-right: 10px; margin-bottom: 40px;}
 
@@ -1031,6 +1037,8 @@ div .price {margin-left: 60px;}
 
 div .title_product {margin-left: 70px;}
 
-div .link_different {margin-left: 90px;}
+div .link_different {padding-bottom: 10px;}
+
+
 
 
