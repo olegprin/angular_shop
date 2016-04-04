@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
   
-  #include ObjectModel::Model
+  include ObjectModel::Model
   
 
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
