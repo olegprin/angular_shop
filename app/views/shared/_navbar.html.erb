@@ -1,6 +1,6 @@
-<% current_user.try(:admin?) do %> 
-  <%= link_to "admin", admins_index_path%>
-<%end%>  
+<%# current_user.try(:admin?) do %> 
+  <%#= link_to "admin", admins_index_path%>
+<%#end%>  
         <%unless user_signed_in?%>
          <div class="link_registration">
               <%#= render "devise/registrations/new"%> 
