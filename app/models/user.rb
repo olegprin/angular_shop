@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
 
     after_create :create_role_and_info
-    #after_create :send_notification
+    after_create :send_notification
 
   ROLES = {0 => :guest, 1 => :user, 2 => :moderator, 3 => :admin}
   def self.new_with_session(params, session)
@@ -45,9 +45,7 @@ class User < ActiveRecord::Base
   end
   
   def user_first
-    if User.present?
-      true
-    else
+    unless User.first.present?
       self.admin=true
       self.role="admin"
     end
@@ -70,7 +68,7 @@ end
 
   def send_notification
     AdminMailer.new_user(self).deliver_now
-    #AdminMailer.new_user_admin(self).deliver_now
+    AdminMailer.new_user_admin(self).deliver_now
   end
 
 end

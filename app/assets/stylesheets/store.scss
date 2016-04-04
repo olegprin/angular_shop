@@ -280,8 +280,8 @@ color: #fff;
 #grid .portfolio-thumbnail p{color:#FFF;}
 #grid .one-half,#grid .one-third,#grid .one-fourth,#grid .one-fifth {
 	margin-right:2px;	
-	margin-top:2px;	
-	margin-bottom:0!important;	
+	padding-top:50px;	
+
 	margin-left:0!important;
 	}
 #grid .one-half {
@@ -324,7 +324,7 @@ color: #fff;
 }
 .one-half, .two-third, .one-third, .one-fourth, .one-fifth, .one-sixth, .inner-content,.one-third-big  {
 	margin-right: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .one {
 	width:960px;
@@ -1033,12 +1033,11 @@ div .tovar {padding-down:10px;font-size: 20px;}
 
 div .image_cart {padding-right: 10px; margin-bottom: 40px;}
 
-div .price {margin-left: 60px;}
+div .price {margin-left: 60px; }
 
 div .title_product {margin-left: 70px;}
 
 div .link_different {padding-bottom: 10px;}
-
 
 
 

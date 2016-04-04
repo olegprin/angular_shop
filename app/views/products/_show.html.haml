@@ -33,11 +33,13 @@
     %div{:class=>"col-md-6"}     
       %p
         %b Description:
-        -if params[:action]=='index' || params[:action]=='search_product'   
-          = insert_text(@product.description, 450)
-          = render partial: "products/modal_of_description"
-        -else  
+        -if params[:action]=='show'   
           =insert_text(@product.description)
+          = render partial: "products/modal_of_description"    
+        -else  
+          = insert_text(@product.description, 450)
+          = render partial: "products/modal_of_description"  
+         
 
         %p{:class=>"buy_product"}
         

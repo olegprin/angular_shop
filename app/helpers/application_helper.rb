@@ -12,6 +12,14 @@ module ApplicationHelper
     end
   end
   
+  def admin?
+    if current_user.role=="admin"
+      true
+    else
+      false
+    end    
+  end
+
   def title(name)
 
   end
