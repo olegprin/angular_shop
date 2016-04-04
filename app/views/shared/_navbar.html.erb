@@ -3,12 +3,12 @@
 <%end%>  
         <%unless user_signed_in?%>
          <div class="link_registration">
-              <%= render "devise/registrations/new"%> 
-              <%= render "devise/sessions/new"%>
+              <%#= render "devise/registrations/new"%> 
+              <%#= render "devise/sessions/new"%>
       
           <%#= render "devise/google"%>
           <%else%>
-          <%= ui_button 'destroy',  t('menu.languages.sign_out'),   destroy_user_session_path, :method => :delete  %>
+          <%#= ui_button 'destroy',  t('menu.languages.sign_out'),   destroy_user_session_path, :method => :delete  %>
       </div>
     <%end%>
 
