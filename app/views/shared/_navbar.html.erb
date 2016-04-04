@@ -6,7 +6,7 @@
               <%= render "devise/registrations/new"%> 
               <%= render "devise/sessions/new"%>
       
-          <%= render "devise/google"%>
+          <%#= render "devise/google"%>
           <%else%>
           <%= ui_button 'destroy',  t('menu.languages.sign_out'),   destroy_user_session_path, :method => :delete  %>
       </div>
