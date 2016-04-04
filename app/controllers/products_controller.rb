@@ -1,5 +1,5 @@
-require "receipts/version"
-require "receipts/receipt"
+#require "receipts/version"
+#require "receipts/receipt"
 
 class ProductsController < ApplicationController
     include CurrentCart
