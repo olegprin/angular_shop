@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  before_create :user_first
+  
  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:omniauthable, :omniauth_providers => [:digitalocean,:google_oauth2, :facebook]
-
+  after_create :user_first
         
 
   has_many :products
@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
   has_many :messagestoadministrators
 
 
-    after_create :create_role_and_info
-    after_create :send_notification
+  after_create :create_role_and_info
+   # after_create :send_notification
 
   ROLES = {0 => :guest, 1 => :user, 2 => :moderator, 3 => :admin}
   def self.new_with_session(params, session)
@@ -45,10 +45,10 @@ class User < ActiveRecord::Base
   end
   
   def user_first
-    unless User.first.present?
-      self.admin=true
-      self.role="admin"
-    end
+    @user=User.where(role: "admin")
+    unless @user.present?
+      self.update_attributes(role: "admin", admin: true)
+    end  
   end
 
 
@@ -56,8 +56,8 @@ class User < ActiveRecord::Base
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.email = auth.info.email
     user.password = Devise.friendly_token[0,20]
-
   end
+
 end
   def email_verified?
     true

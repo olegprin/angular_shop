@@ -47,6 +47,10 @@ gem 'rails-i18n'
 
 group :development, :test do
   gem 'capistrano'
+  gem 'rspec-rails', '~> 3.0'
+  gem "capybara"
+  gem 'factory_girl_rails'
+  gem "guard-rspec"
   gem 'capistrano-passenger'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'

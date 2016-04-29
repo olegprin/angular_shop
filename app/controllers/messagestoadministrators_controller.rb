@@ -1,6 +1,6 @@
 class MessagestoadministratorsController < ApplicationController
   before_action :set_messagestoadministrator, only: [:show, :edit, :update, :destroy]
-  before_action :only_admin_or_moderator, only: [:index]
+  before_action :only_admin_or_moderator, except: [:new, :create]
   # GET /messagestoadministrators
   # GET /messagestoadministrators.json
   def index

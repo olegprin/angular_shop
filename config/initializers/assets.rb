@@ -8,7 +8,8 @@ Rails.application.config.assets.precompile += ["#{controller}.js", "#{controller
 end
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
-
+Rails.application.config.assets.precompile += %w( admin/admins.css )
+Rails.application.config.assets.precompile += %w( admin/configurables.css )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )

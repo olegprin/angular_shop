@@ -1,6 +1,6 @@
 class AnswerfrommoderatorsController < ApplicationController
   before_action :set_answerfrommoderator, only: [:show, :edit, :update, :destroy]
-
+  before_action :only_admin_or_moderator
   # GET /answerfrommoderators
   # GET /answerfrommoderators.json
   def index

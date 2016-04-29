@@ -94,7 +94,7 @@ class ApplicationController < ActionController::Base
   
   def only_admin_or_moderator
     if current_user.present?
-      current_user.role=="moderator" ? true : (redirect_to root_path)  
+      (current_user.role=="admin") ? true : (redirect_to root_path)  
     else
       redirect_to root_path  
     end 
@@ -112,8 +112,16 @@ class ApplicationController < ActionController::Base
     @guardian ||= Guardian.new(current_user)
   end
 
-  private
+  def authenticate
+  if current_user.try(:role)=="admin"
+    true
+  else
+    redirect_to root_path  
+   end  
+end  
 
+  private
+    
     def current_author_for_object(method, object)  
       if current_user.present?  
         if method==object.id

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404061534) do
+ActiveRecord::Schema.define(version: 20160423230222) do
+
+  create_table "answerfrommoderators", force: :cascade do |t|
+    t.integer  "user_id"
+    t.boolean  "send_message"
+    t.string   "name"
+    t.string   "content"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"

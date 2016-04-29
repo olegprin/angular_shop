@@ -1,26 +1,31 @@
-class Admin::ConfigurablesController < Admin::AdminsController
+module Admin
+
+ class ConfigurablesController < ApplicationController
   
-  def index
-    @configurable=Configurable.all  
-  end 
-
-    
-  def edit
-    @configurable=Configurable.find(params[:id])
-  end
-  
-
-  def update
-    @configurable=Configurable.find(params[:id])
-    if @configurable.update(configurable_params)
-    redirect_to admin_configurables_path
-  end
- end
-
-  private
-
-    def configurable_params
-      params.require(:configurable).permit(:value, :name)
+  include ConfigurableEngine::ConfigurablesController
+  before_action :authenticate
+   before_action :authenticate_user!
+  #before_filter :protect_my_code
+    def edit
+      @keys = Configurable.keys
     end
 
+    def update
+      failures = Configurable
+        .keys.map do |key|
+          Configurable.find_by_name(key) ||
+            Configurable.create {|c| c.name = key}
+        end.reject do |configurable|
+          configurable.value = params[configurable.name]
+          configurable.save
+        end
+
+      if failures.empty?
+        redirect_to admin_admins_path, :notice => "Changes successfully updated"
+      else
+        flash[:error] = failures.flat_map(&:errors).flat_map(&:full_messages).join(',')
+        redirect_to admin_configurable_path
+      end
+    end
+end
 end

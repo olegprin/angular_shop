@@ -7,22 +7,17 @@ Rails.application.routes.draw do
   put "voices/:decrease_id" => "voices#decrease", :as => "voices_decrease"
 
   namespace :admin do
-    resources  :admins
-    resources  :configurables
-    resources  :clients
-    resources  :tasks
+    resources  :admins, only: [:index] 
+    resource :configurable
+    #get "configurable/edit", as: "admin_configurable_edit"
+    #resources  :clients
+    #resources  :tasks
   end
   
-  get 'admins/index'
-    
 
 
 
-  resources :messagestoadministrators
-
-  resources :orders
-  resources :line_items
-  resources :carts
+resources :infos, :messagestoadministrators, :answerfrommoderators, :orders, :line_items, :carts
   
  resources :searches do 
     collection do
@@ -72,9 +67,10 @@ Rails.application.routes.draw do
   
   get "info_show_from_email/:user_id" => "infos#show_from_email", :as => "user_show"
   get "info_show_from_navbar/:user_id" => "infos#show_from_navbar", :as => "user_show_navbar"
-  get "ban_the_user/:id" => "admins#ban_the_user", :as => "ban"
-  
-resources :infos 
+  get '/ban_the_user/:id' => 'admin/admins#ban_the_user', :as => 'ban'
+  get '/make_admin/:id' => 'admin/admins#make_admin', :as => 'make_admin'
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

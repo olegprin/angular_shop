@@ -9,7 +9,7 @@
           <%= render "devise/google"%>
           <%else%>
            <% if admin? %> 
-            <%= link_to "admin", admins_index_path%>
+            <%= link_to "admin", admin_admins_path%>
           <%end %>  
           <%= ui_button 'destroy',  t('menu.languages.sign_out'),   destroy_user_session_path, :method => :delete  %>
       </div>
