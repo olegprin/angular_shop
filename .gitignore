@@ -17,3 +17,5 @@ Guardfile
 /.idea
 /test
 /rspec
+config/database.yml
+config/secrets.yml
