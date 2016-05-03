@@ -63,13 +63,13 @@ resources :infos, :messagestoadministrators, :answerfrommoderators, :orders, :li
 
 
   #post 'pages/upload' 
-  delete 'user_delete/:id' => 'admins#delete_user', as: "delete_user"
+
   
   get "info_show_from_email/:user_id" => "infos#show_from_email", :as => "user_show"
   get "info_show_from_navbar/:user_id" => "infos#show_from_navbar", :as => "user_show_navbar"
   get '/ban_the_user/:id' => 'admin/admins#ban_the_user', :as => 'ban'
   get '/make_admin/:id' => 'admin/admins#make_admin', :as => 'make_admin'
-
+  delete 'user_delete/:id' => 'admin/admins#delete_user', as: "delete_user"
 
 
 

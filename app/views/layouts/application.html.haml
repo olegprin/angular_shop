@@ -1,6 +1,12 @@
 %DOCTYPE
 %html
   %head
+
+
+    %title 
+      Timeorg - 
+      = yield(:title) || "The blog"
+
   = render partial: "shared/down"
   = render partial: "shared/navbar" 
 %div{:id=>"modal-holder"}

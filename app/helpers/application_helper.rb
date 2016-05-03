@@ -12,16 +12,16 @@ module ApplicationHelper
     end
   end
   
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
+
   def admin?
     if current_user.role=="admin"
       true
     else
       false
     end    
-  end
-
-  def title(name)
-
   end
     
   def send_message(info)
@@ -262,15 +262,6 @@ end
       'Draft'
     end
   end
-
-
-
-
-
-
-
-
-
 
   # Let's see if there is a title for the h1-title
   def show_title?

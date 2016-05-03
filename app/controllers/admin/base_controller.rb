@@ -30,7 +30,8 @@ module Admin
   end 
 
   def delete_user
-    @user=User.find_by(id: params[:id])
+    @info=Info.find_by_id(params[:id])
+    @user=User.find(@info.user_id)
     @user.destroy
     respond_to do |format|
       format.html {  redirect_to "admin/admins", notice: 'User was successfully destroyed.' }
