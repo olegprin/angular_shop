@@ -37,7 +37,7 @@ gem 'cancancan'
 gem 'will_paginate'
 gem "pg"
 gem 'spring'
-gem 'rake','11.1.1'
+gem 'rake','11.1.2'
 gem 'tire'
 gem 'prawn'
 gem 'prawn-table'
