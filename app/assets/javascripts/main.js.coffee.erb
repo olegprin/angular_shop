@@ -1,0 +1,17 @@
+
+Blog = angular.module('Blog', ['ngRoute'])
+Blog.config(["$routeProvider", ($routeProvider) ->
+	$routeProvider.when('/angulars', { templateUrl: '<%=asset_path("mainIndex.html")%>', controller: 'IndexCtrl' } )
+
+  $routeProvider.otherwise({ templateUrl: '<%=asset_path("mainIndex.html")%>', controller: 'IndexCtrl' } )
+
+
+])
+
+Blog.controller('IndexCtrl', [
+  '$scope',
+  ($scope) ->
+    $scope.data=
+      posts: [{title: "My first post", contents: "tanywa"}, {title: "second", contents: "oleska"}]
+
+]);
