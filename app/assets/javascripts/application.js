@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require home
 //= require films
+
 //= require angular
 //= require main
 
@@ -26,3 +27,4 @@
 //= require angular-route
 //= require angular-rails-templates
 //= require_tree .
+

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :angulars
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   put "voices/:increase_id" => "voices#increase", :as => "voices_increase"

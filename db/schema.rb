@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160704202738) do
 
   create_table "angulars", force: :cascade do |t|
@@ -19,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160704202738) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+ActiveRecord::Schema.define(version: 20160423230222) do
 
   create_table "answerfrommoderators", force: :cascade do |t|
     t.integer  "user_id"
@@ -60,6 +63,19 @@ ActiveRecord::Schema.define(version: 20160704202738) do
 
   add_index "configurables", ["name"], name: "index_configurables_on_name"
 
+<<<<<<< HEAD
+=======
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+>>>>>>> dc7c8044a9c8695f5294d850437cabe24572c3d1
   create_table "infos", force: :cascade do |t|
     t.string   "name"
     t.string   "city"

@@ -48,11 +48,13 @@ gem 'rails-i18n'
 
 
 
+
 gem 'angular-rails-templates'
 gem 'dynamic_sitemaps'
 gem 'friendly_id'
 gem 'whenever', :require => false
 gem 'angularjs-rails'
+
 
 
 
