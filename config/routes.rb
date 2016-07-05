@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :angulars
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  
+
+  get 'data' => "products#data"  
   put "voices/:increase_id" => "voices#increase", :as => "voices_increase"
   put "voices/:decrease_id" => "voices#decrease", :as => "voices_decrease"
 

@@ -8,7 +8,17 @@ class ProductsController < ApplicationController
   before_action :ban_path, only: [:show]
 
   respond_to :html, :js, :json
- 
+  #before_action :user_activated?
+  
+  def data
+    @products = Product.all
+    # Respond to request with post data in json format
+    respond_to do |format|
+      format.json {  render :json =>  @products.as_json }
+    end
+  end
+  
+
   # GET /products
   # GET /products.json
   def index

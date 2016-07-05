@@ -9,11 +9,15 @@ Blog.config(["$routeProvider", ($routeProvider) ->
 ])
 
 Blog.controller('IndexCtrl', [
-  '$scope','$location'
-  ($scope, $location) ->
+  '$scope','$location','$http', 'postData'
+  ($scope, $location, $http, postData) ->
     $scope.data=
-      posts: [{postId:0, title: "My first post", contents: "tanywa"}, {postId: 1, title: "My second post", contents: "oleska"}]
+      posts: [{ title: "Loading post...", contents: ""}]
 		
+   
+    $scope.data = postData.data
+    postData.loadDatas()
+
     $scope.viewPost=(postId) ->
       $location.url('/post/'+postId)    
 
