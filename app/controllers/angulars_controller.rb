@@ -25,16 +25,18 @@ class AngularsController < ApplicationController
   # POST /angulars.json
   def create
     @angular = Angular.new(angular_params)
-
-    respond_to do |format|
-      if @angular.save
-        format.html { redirect_to @angular, notice: 'Angular was successfully created.' }
-        format.json { render :show, status: :created, location: @angular }
-      else
-        format.html { render :new }
-        format.json { render json: @angular.errors, status: :unprocessable_entity }
-      end
+    @angular.title=params[:new_post][:title]
+    @angular.body=params[:new_post][:description]
+    if @angular.valid?
+      @angular.save!
+    else
+      render "public/422", :status => 422
+      return
     end
+     respond_with(@angular) do |format|
+      format.json { render :json => @angular.as_json }
+    end
+
   end
 
   # PATCH/PUT /angulars/1
