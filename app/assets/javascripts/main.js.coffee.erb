@@ -1,6 +1,43 @@
 
 Blog = angular.module('Blog', ['ngRoute'])
+.controller('OlesaCtrl',[
+  '$scope'
+  ($scope) ->
+    $scope.counter = 0
+    $scope.add = ($paramater) ->
+      $scope.counter += 1
+    $scope.minus = ($parameter) ->
+      $scope.counter -= 1
+    $scope.name={
+      name: "Olesa"
+    }  
+]) 
+
+
+.controller 'MyController', [
+  '$scope','$interpolate'
+  ($scope, $interpolate) ->
+    $scope.to="enail@.ru"
+    $scope.emailBody="fff {{to}} vasa"
+    $scope.$watch 'to', (body) ->
+      if (body)
+      
+        parseFun = $interpolate(body)
+
+        $scope.previewText = 
+          parseFun { }
+     
+]
+
+
+
+
+
+
+
+
 Blog.config(["$routeProvider", ($routeProvider) ->
+
   $routeProvider
     .when('/post/new', { templateUrl: '<%=asset_path("postNew.html")%>', controller: 'CreatePostCtrl' } )
     .when('/post/:postId', { templateUrl: '<%=asset_path("postIndex.html")%>', controller: 'PostCtrl' } )
@@ -62,7 +99,6 @@ Blog.controller('CreatePostCtrl', [
         console.error('Failed to create new post.')
       )
 
-    return true
     
     $scope.createPost=(newPost)->
       if newPost.newPostTitle =='' or newPost.newPostContents==''
@@ -73,7 +109,10 @@ Blog.controller('CreatePostCtrl', [
         new_post: 
           title: newPost.newPostTitle
           description: newPost.newPostContents
-      console.log($scope.formData)
+      
     $scope.navHome = ->
       $location.url('/')
+
+
+    return true  
 ])
