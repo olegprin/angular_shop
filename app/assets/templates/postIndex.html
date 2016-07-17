@@ -1,6 +1,8 @@
 postIndex
+{{girl}}
 
-<h1 class="text-center">{{data.postId }} - {{data.postData.posts[data.postId].title }}</h1>
+<h1 class="text-center">{{data.currentProduct.id }} - {{data.currentProduct.title }}</h1>
 <div class="row">
-    <p>{{data.postData.posts[data.postId].description }}</p>
+  <p>{{data.currentProduct.description }}</p>
+  <button class="btn btn-default" ng-click="deletePost()">Edit</button>
 </div>

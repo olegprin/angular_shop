@@ -1,8 +1,9 @@
 
 Blog = angular.module('Blog', ['ngRoute'])
-Blog.config(["$routeProvider", ($routeProvider) ->
+Blog.config(["$routeProvider", "$httpProvider", ($routeProvider, $httpProvider) ->
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
   $routeProvider
-    .when('/post/new', { templateUrl: '<%=asset_path("postNew.html")%>', controller: 'CreatePostCtrl' } )
+    .when('/product/new', { templateUrl: '<%=asset_path("postNew.html")%>', controller: 'CreatePostCtrl' } )
     .when('/post/:postId', { templateUrl: '<%=asset_path("postIndex.html")%>', controller: 'PostCtrl' } )
     .otherwise({ templateUrl: '<%=asset_path("mainIndex.html")%>', controller: 'IndexCtrl' } )
 ])
@@ -10,70 +11,79 @@ Blog.config(["$routeProvider", ($routeProvider) ->
 Blog.controller('IndexCtrl', [
   '$scope','$location','$http', 'postData'
   ($scope, $location, $http, postData) ->
+  
+    $scope.vasa="olya" 
+    $scope.data=postData.data
+    postData.loadPost()
+    
+    $scope.viewPost = (postId)->
+      $location.url('/post/'+postId)
+    
+    $scope.newPost = ->
+      $location.url('/product/new')
 
-	  $scope.data = 
-      posts: [{title: 'Loading posts...', contents: ''}]
-    
-    $scope.data = postData.data
-    postData.loadDatas()
-    
-
-    $scope.viewPost=(postId) ->
-      $location.url('/post/'+postId)    
-    
-    $scope.navNewPost = ->
-      $location.url('/post/new')
 
 
 ]);
 
 
-Blog.controller('PostCtrl', [
-  '$scope','$routeParams', 'postData'
-  ($scope,$routeParams, postData) ->
-    
-    $scope.data = 
-      postData: postData.data
-    postData.loadDatas()      
-    $scope.data.postId=$routeParams.postId
-   
-])
 
 Blog.controller('CreatePostCtrl', [
-  '$scope','$location', 'postData'
-  ($scope,$location, postData) ->
-    
-    $scope.data = postData.data
-    postData.loadDatas()
-    
-    $scope.formData =
-      newPostTitle: '10'
-      newPostContents: ''
+  '$scope','$location','$http', '$routeParams','postData'
+  ($scope, $location, $http, $routeParams, postData) ->
 
-    $scope.navNewPost = ->
-      $location.url('/post/new')
-   
+    $scope.formProduct=
+      newProductTitle: "name"
+      newProductContents: "name product"
+    $scope.girl="olya"
+
+    $scope.createPost=->
+      postData.createPost($scope.formProduct)
+
+    $scope.clearPost=->
+      $scope.formProduct.newProductTitle=" "
+      $scope.formProduct.newProductContents=" "    
+
+]);
+
+
+
+Blog.controller('PostCtrl', [
+  '$scope','$location','$http', '$routeParams','postData'
+  ($scope, $location, $http, $routeParams, postData) ->
+
       
-      $http.post('./data.json', data).success( (data) ->
-        # Add new post to array of posts
-        postData.data.posts.push(data)
-        console.log('Successfully created post.')
-      ).error( ->
-        console.error('Failed to create new post.')
-      )
+    $scope.data=
+      postData: postData.data
+      currentProduct: 
+        title: ' '
+        description: ' '
+        id: ''
 
-    return true
+    postData.loadPost()
     
-    $scope.createPost=(newPost)->
-      if newPost.newPostTitle =='' or newPost.newPostContents==''
-        alert "Can'b be blank"
-        return false
+    $scope.data.postId=$routeParams.postId
+    $scope.girl="olya"
+
+  
+    $scope.findArticle=->
+      post=_.findWhere(postData.data.products, {id: parseInt($scope.data.postId)})
+      $scope.data.currentProduct.title=post.id    
+      $scope.data.currentProduct.title=post.title
+      $scope.data.currentProduct.description=post.description
     
-      data=
-        new_post: 
-          title: newPost.newPostTitle
-          description: newPost.newPostContents
-      console.log($scope.formData)
-    $scope.navHome = ->
-      $location.url('/')
-])
+    $scope.createPost=->
+      postData.createPost($scope.formProduct)
+
+
+
+    $scope.deletePost=->
+      postData.deletePost   
+]);
+
+
+
+
+
+
+

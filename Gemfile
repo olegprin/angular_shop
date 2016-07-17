@@ -22,7 +22,7 @@ gem 'therubyracer'
 gem 'bootstrap-sass'
 gem 'sass-rails'
 
-
+gem 'underscore-rails'
 gem 'jquery-ui-rails'
 
 gem 'redcarpet'

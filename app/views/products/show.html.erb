@@ -1,2 +1,85 @@
 
-<%=render "store/index"%>
+ <div class="row">
+    <div class="col-md-2">
+    </div>  
+    <div class="col-md-9">  
+      <div class="search_panel"> 
+      <%=render "searches/new"%>
+     
+      </div>
+    </div>
+    <div class="image_cart">
+      <div class="col-md-1">
+       
+      </div>
+    </div>  
+  </div>
+
+  
+<body>
+<div class="row">
+
+
+  <div class="col-md-2">
+
+  </div>
+
+  <div class="col-md-7">  
+    <div id="container">
+      <div id="prod_wrapper">
+        
+
+
+        <div id="hide_tovar">  
+          <%= render partial: "products/show" %>  
+        </div>         
+        <div id="mytovar">
+          <%=render "store/product"%>
+        </div>
+     
+
+
+
+
+      <!-- END prod wrapper -->
+      <div style="clear:both">
+      </div>
+      <div class="one-third">
+        <h2>Business Solutions
+        </h2>
+        <p>Nulla hendrerit commodo tortor, vitae elementum magna convallis nec. Nam tempor nibh a purus aliquam et adipiscing elit gravida.
+        </p>
+        <p style="text-align:right; margin-right: 15px"><a href="#" class="button_small">Find out more</a>
+        </p>
+      </div>
+      <div class="one-third">
+        <h2>Become a Partner</h2>
+        <p>Nulla hendrerit commodo tortor, vitae elementum magna convallis nec. Nam tempor nibh a purus aliquam et adipiscing elit gravida.</p>
+        <p style="text-align:right; margin-right: 15px"><a href="#" class="button_small">Contact Us Today</a></p>
+      </div>
+      <div class="one-third last">
+        <h2>Latest News</h2>
+        <p>Nulla hendrerit commodo tortor, vitae elementum magna convallis nec. Nam tempor nibh a purus aliquam et adipiscing elit gravida.</p>
+        <p style="text-align:right; margin-right: 15px"><a href="#" class="button_small">Read Article</a></p>
+      </div>
+      <div style="clear:both"></div>
+ 
+        
+
+
+
+
+
+
+
+
+
+        
+
+  </div>
+</div>
+<!-- END container -->
+  <%= render "store/footer"%>
+<!-- END footer -->
+</body>
+</html>

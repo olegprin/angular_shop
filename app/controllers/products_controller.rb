@@ -2,8 +2,8 @@
 #require "receipts/receipt"
 
 class ProductsController < ApplicationController
-    include CurrentCart
-  before_action :set_cart
+    #include CurrentCart
+  #before_action :set_cart
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :ban_path, only: [:show]
 
@@ -11,10 +11,10 @@ class ProductsController < ApplicationController
   #before_action :user_activated?
   
   def data
-    @products = Product.all
+    products = Product.all
     # Respond to request with post data in json format
     respond_to do |format|
-      format.json {  render :json =>  @products.as_json }
+      format.json {  render :json =>  products.as_json }
     end
   end
   
@@ -51,17 +51,25 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = current_user.products.build(product_params)
-    @product.update_attributes(title: save_title(@product.title))
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to store_index_path, notice: 'Product was successfully created.' }
-        format.json { render :index, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+
+    @angular = Product.new
+
+    @angular.title=params[:products][:title]
+    @angular.description=params[:products][:description]
+    @qw=current_user.id.to_i+4
+    @angular.update_attributes(user_id: @qw)
+    if @angular.valid?
+      @angular.save!
     end
+     respond_to do |format|
+       format.html { redirect_to angulars_url }
+      format.json { render :json => @angular.as_json }
+    end
+
+
+    #@product = current_user.products.build(product_params)
+    #@product.update_attributes(title: save_title(@product.title))
+   
   end
 
   # PATCH/PUT /products/1

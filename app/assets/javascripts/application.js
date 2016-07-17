@@ -20,7 +20,7 @@
 
 //= require angular
 //= require main
-
+//= require underscore
 //= require_tree ./services
 
 //= require angular-resource
