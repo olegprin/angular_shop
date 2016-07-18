@@ -31,9 +31,21 @@ angular.module('Blog').factory('postData', ['$http', ($http) ->
       console.error('Failed to load posts.')
     )    
 
+  postData.deletePost = (value) ->
+    $http.delete('/products/' + value + '.json').success((data)->
+      alert("Comments was deleted")
+    )
+
+
+
+  postData.editPost = (value) ->
+    post=_.findWhere(postData.data.products, {id: parseInt(value)})
     
-
-
+    postData:
+      data:
+        products:
+          title: post.title 
+          description: post.description    
 
   return postData
 

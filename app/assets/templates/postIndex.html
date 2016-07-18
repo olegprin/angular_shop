@@ -4,5 +4,5 @@ postIndex
 <h1 class="text-center">{{data.currentProduct.id }} - {{data.currentProduct.title }}</h1>
 <div class="row">
   <p>{{data.currentProduct.description }}</p>
-  <button class="btn btn-default" ng-click="deletePost()">Edit</button>
+  <button class="btn btn-default" ng-click="deletePost(data.currentProduct.id)">Delete</button>
 </div>

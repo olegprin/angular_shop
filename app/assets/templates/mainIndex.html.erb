@@ -13,8 +13,10 @@ mainIndex
 <div class="container" style="margin-top: 40px">
   <h1 class="text-center">My blog</h1>
   <div class="row" ng-repeat="post in data.products">
-      <h2><a ng-click="viewPost(post.id)">{{ post.id }}{{ post.title }}</a></h2>
+      <h2><a ng-click="viewPost(post.id)">{{ post.id }} - {{ post.title }}</a></h2>
       <p>{{ post.description }}</p>
+      <button class="btn btn-default" ng-click="deletePost(post.id)">Delete</button>
+      <button class="btn btn-default" ng-click="editPost(post.id)", ng-init="init(post.id)">Edit</button>
   </div>
 </div>
 
@@ -33,3 +35,15 @@ mainIndex
     </fieldset>
   </form>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+

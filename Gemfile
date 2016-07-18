@@ -14,6 +14,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 
 gem 'jbuilder'
+gem 'angularjs-rails-resource'
 
 gem "paperclip"
 

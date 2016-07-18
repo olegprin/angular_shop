@@ -52,6 +52,7 @@ GEM
       sprockets (~> 3.0)
       tilt
     angularjs-rails (1.5.6)
+    angularjs-rails-resource (2.2.0)
     ansi (1.5.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.7)
@@ -368,6 +369,7 @@ PLATFORMS
 DEPENDENCIES
   angular-rails-templates
   angularjs-rails
+  angularjs-rails-resource
   bootstrap-sass
   bootstrap_form
   cancancan
