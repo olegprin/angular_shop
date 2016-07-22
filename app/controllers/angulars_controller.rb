@@ -25,15 +25,13 @@ class AngularsController < ApplicationController
   # POST /angulars.json
   def create
     @angular = Angular.new(angular_params)
-    @angular.title=params[:new_post][:title]
-    @angular.body=params[:new_post][:description]
+    #@angular.title=params[:new_post][:title]
+    #@angular.body=params[:new_post][:description]
     if @angular.valid?
       @angular.save!
-    else
-      render "public/422", :status => 422
-      return
     end
-     respond_with(@angular) do |format|
+     respond_to do |format|
+       format.html { redirect_to angulars_url }
       format.json { render :json => @angular.as_json }
     end
 
@@ -71,6 +69,7 @@ class AngularsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def angular_params
+      #params.require(:new_post).permit(:title, :body)
       params.require(:angular).permit(:title, :body)
     end
 end

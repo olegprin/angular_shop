@@ -14,7 +14,7 @@
             = ui_button 'delete',  t(:delete), product_path(@product), method: :delete
 
       %p
-        =  link_to image_tag(@product.uploaded_file.url, size: "400x300"), product_path(@product)
+        /=  link_to image_tag(@product.uploaded_file.url, size: "400x300"), product_path(@product)
       
       %div{:class=>"like_dislike_id"}
                 

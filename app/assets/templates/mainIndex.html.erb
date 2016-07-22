@@ -3,15 +3,57 @@ mainIndex
   <div class="navbar-inner">
     <a href="#" class="brand">My blog</a>
     <ul class="nav pull-right">
-      <li><a ng-click="navNewPost()">New Post</a></li>
+      <li><a ng-click="newPost()">New Post</a></li>
     </ul>
   </div>
 </div>
+{{vasa}}
 
+<li><a ng-click="newPost()">New Post</a></li>
 <div class="container" style="margin-top: 40px">
   <h1 class="text-center">My blog</h1>
-  <div class="row" ng-repeat="post in data.posts">
-      <h2><a ng-click="viewPost($index)">{{ post.title }}</a></h2>
+  <div class="row" ng-repeat="post in data.products">
+      <h2><a ng-click="viewPost(post.id)">{{ post.id }} - {{ post.title }}</a></h2>
       <p>{{ post.description }}</p>
+      <button class="btn btn-default" ng-click="deletePost(post.id)">Delete</button>
+      <button class="btn btn-default" ng-click="editPost(post.id)">Edit</button>
   </div>
 </div>
+
+gfdg
+{{data.postId}}
+fxgbdf
+<div class="container" style="margin-top: 40px">
+  <h1 class="text-center">Create new post</h1>
+  <form>
+    <fieldset>
+      <label><strong>Title</strong></label>
+      <input class="span12" ng-model="formProduct.newProductTitle" placeholder="New Post" type="text" maxlength="250">
+      <label><strong>Body</strong></label>
+      <textarea class="span12" style="height: 250px" ng-model="formProduct.newProductContents" placeholder="Type your post here..."></textarea>
+      
+      <div ng-show="show_update">
+        <button class="btn btn-primary" ng-click="updatePost(  data.postId)">Update</button>
+      </div>
+
+
+      <div ng-show="hide_create">
+        <button class="btn btn-primary" ng-click="createPost()">Create</button>
+      </div>
+      <button class="btn btn-danger pull-right" ng-click="clearPost()">Clear post</button>
+    </fieldset>
+  </form>
+</div>
+
+
+
+Show HTML: <input type="checkbox" ng-model="myVar">
+
+<div ng-show="myVar">
+<h1>Welcome</h1>
+<p>Welcome to my home.</p>
+</div>
+
+
+
+
