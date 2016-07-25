@@ -1,3 +1,4 @@
+
 Blog = angular.module('Blog', ['ngRoute'])
 Blog.config(["$routeProvider", "$httpProvider", ($routeProvider, $httpProvider) ->
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
@@ -21,6 +22,7 @@ Blog.controller('IndexCtrl', [
     $scope.viewPost = (postId)->
       $location.url('/post/'+postId)
     
+
     $scope.createPost=->
 
 
@@ -39,8 +41,22 @@ Blog.controller('IndexCtrl', [
     $scope.init=(valuename)->
       $scope.test=valuename
    
+    total_price=0
+    tovar_name={}
+    $scope.buyProduct=(tovar)->  
+      
+      
+      tovar_name.push(tovar)
+      console.log(tovar_name)
+      $scope.tovar_name=tovar_name
 
-    
+
+
+      total_price+=parseInt(tovar.price)
+      $scope.total=total_price
+      
+
+
     $scope.editPost = (value)->
       $scope.show_update=true
       $scope.hide_create=false
