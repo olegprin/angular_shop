@@ -3,15 +3,15 @@ class Product < ActiveRecord::Base
   include ObjectModel::Model
   
 
-  validates :price, numericality: {greater_than_or_equal_to: 0.01}
-  validates :title, uniqueness: true
-  validates :description, presence: true, uniqueness: true
+  #validates :price, numericality: {greater_than_or_equal_to: 0.01}
+  #validates :title, uniqueness: true
+  #validates :description, presence: true, uniqueness: true
   belongs_to :user
   has_many :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  @model_of_attachment='uploaded_file'.parameterize.underscore.to_sym	 
-  include ValidationsForPicture
+  #@model_of_attachment='uploaded_file'.parameterize.underscore.to_sym	 
+  #include ValidationsForPicture
   
   CATEGORY = %w[Mobile Laptop Car] 
 
