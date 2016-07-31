@@ -1,0 +1,78 @@
+I"3	(function() {
+  angular.module('Blog').factory('postData', [
+    '$http', function($http) {
+      var postData;
+      postData = {
+        data: {
+          products: [
+            {
+              title: 'Loading posts...',
+              contents: ''
+            }
+          ]
+        }
+      };
+      postData.loadPost = function() {
+        return $http.get('./data.json').success(function(data) {
+          postData.data.products = data;
+          return console.log('Successfully loaded posts.');
+        }).error(function() {
+          return console.error('Failed to load posts.');
+        });
+      };
+      postData.createPost = function(newPost) {
+        var data;
+        if (newPost.newProductTitle === " " || newPost.newProductContents === " ") {
+          alert("Bida");
+          return false;
+        }
+        data = {
+          products: {
+            title: newPost.newProductTitle,
+            description: newPost.newProductContents
+          }
+        };
+        return $http.post('./products.json', data).success(function(data) {
+          postData.data.products.push(data);
+          return console.log('Successfully loaded posts.');
+        }).error(function() {
+          return console.error('Failed to load posts.');
+        });
+      };
+      postData.deletePost = function(value) {
+        return $http["delete"]('/products/' + value + '.json').success(function(data) {
+          data = {
+            products: {
+              title: " ",
+              description: " "
+            }
+          };
+          postData.data.products.splice(1, 1);
+          return alert("Comments was deleted");
+        });
+      };
+      postData.updatePost = function(value, post) {
+        var data;
+        if (post.newProductTitle === " " || post.newProductContents === " ") {
+          alert("Bida");
+          return false;
+        }
+        data = {
+          products: {
+            title: post.newProductTitle,
+            description: post.newProductContents
+          }
+        };
+        return $http.put('/products/' + value + '.json', data).success(function(data) {
+          postData.data.products.push(data);
+          return console.log('Successfully loaded posts.');
+        }).error(function() {
+          return console.error('Failed to load posts.');
+        });
+      };
+      return postData;
+    }
+  ]);
+
+}).call(this);
+:ET

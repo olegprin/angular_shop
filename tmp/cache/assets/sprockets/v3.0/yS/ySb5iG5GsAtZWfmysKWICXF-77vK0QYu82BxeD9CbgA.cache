@@ -1,0 +1,35 @@
+I"ó(function() {
+  angular.module('Blog').factory('bookpost', [
+    'ngResource', function($resource) {
+      return $resource('/products/:id.json', {
+        id: '@id'
+      }, {
+        all: {
+          isArray: true
+        },
+        update: {
+          method: 'PUT',
+          transformRequest: function(object) {
+            return angular.toJson({
+              book: object
+            });
+          }
+        },
+        destroy: {
+          method: 'DELETE',
+          transformRequest: function(object) {}
+        },
+        create: {
+          method: 'POST',
+          transformRequest: function(object) {
+            return angular.toJson({
+              book: object
+            });
+          }
+        }
+      });
+    }
+  ]);
+
+}).call(this);
+:ET

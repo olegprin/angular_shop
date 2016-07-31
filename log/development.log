@@ -1,0 +1,353 @@
+
+
+Started GET "/" for 172.21.0.1 at 2016-07-31 19:37:17 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  [1m[35mCart Load (0.9ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT  "products".* FROM "products"  ORDER BY "products"."id" ASC LIMIT 1[0m
+  [1m[35mConfigurable Load (0.8ms)[0m  SELECT  "configurables".* FROM "configurables" WHERE "configurables"."name" = ? LIMIT 1  [["name", "products_per_page"]]
+  Rendered searches/_new.html.erb (1545.3ms)
+  [1m[36mLineItem Load (0.7ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (71.6ms)
+  Rendered carts/_cart.html.erb (86.2ms)
+  Rendered store/_modal_for_cart.html.erb (90.5ms)
+  [1m[35mVoice Load (0.8ms)[0m  SELECT "voices".* FROM "voices" WHERE "voices"."vote_flag" = ? AND "voices"."votable_type" = ? AND "voices"."votable_id" = 4  [["vote_flag", "t"], ["votable_type", "Product"]]
+  [1m[36mVoice Load (0.4ms)[0m  [1mSELECT "voices".* FROM "voices" WHERE "voices"."vote_flag" = ? AND "voices"."votable_type" = ? AND "voices"."votable_id" = 4[0m  [["vote_flag", "f"], ["votable_type", "Product"]]
+  Rendered voices/_like_dislike.html.erb (21.9ms)
+  Rendered products/_detail_description.html.haml (22.8ms)
+  Rendered products/_modal_of_description.html.erb (26.6ms)
+  Rendered products/_show.html.haml (180.9ms)
+  [1m[35mProduct Load (1.0ms)[0m  SELECT  "products".* FROM "products"  ORDER BY "products"."title" ASC LIMIT 3 OFFSET 0
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mVoice Load (0.9ms)[0m  SELECT "voices".* FROM "voices" WHERE "voices"."vote_flag" = ? AND "voices"."votable_type" = ? AND "voices"."votable_id" = 30  [["vote_flag", "t"], ["votable_type", "Product"]]
+  [1m[36mVoice Load (0.4ms)[0m  [1mSELECT "voices".* FROM "voices" WHERE "voices"."vote_flag" = ? AND "voices"."votable_type" = ? AND "voices"."votable_id" = 30[0m  [["vote_flag", "f"], ["votable_type", "Product"]]
+  Rendered voices/_like_dislike.html.erb (8.6ms)
+  [1m[35mVoice Load (0.8ms)[0m  SELECT "voices".* FROM "voices" WHERE "voices"."vote_flag" = ? AND "voices"."votable_type" = ? AND "voices"."votable_id" = 24  [["vote_flag", "t"], ["votable_type", "Product"]]
+  [1m[36mVoice Load (0.5ms)[0m  [1mSELECT "voices".* FROM "voices" WHERE "voices"."vote_flag" = ? AND "voices"."votable_type" = ? AND "voices"."votable_id" = 24[0m  [["vote_flag", "f"], ["votable_type", "Product"]]
+  Rendered voices/_like_dislike.html.erb (7.5ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT "voices".* FROM "voices" WHERE "voices"."vote_flag" = ? AND "voices"."votable_type" = ? AND "voices"."votable_id" = 4  [["vote_flag", true], ["votable_type", "Product"]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "voices".* FROM "voices" WHERE "voices"."vote_flag" = ? AND "voices"."votable_type" = ? AND "voices"."votable_id" = 4[0m  [["vote_flag", false], ["votable_type", "Product"]]
+  Rendered voices/_like_dislike.html.erb (6.7ms)
+  Rendered store/_product.html.erb (40.4ms)
+  [1m[35mConfigurable Load (0.4ms)[0m  SELECT  "configurables".* FROM "configurables" WHERE "configurables"."name" = ? LIMIT 1  [["name", "registration_from"]]
+  [1m[36mConfigurable Load (0.4ms)[0m  [1mSELECT  "configurables".* FROM "configurables" WHERE "configurables"."name" = ? LIMIT 1[0m  [["name", "name"]]
+  Rendered store/_footer.html.erb (5.0ms)
+  Rendered store/_index.html.erb (1782.7ms)
+  Rendered store/index.html.erb within layouts/application (1803.0ms)
+  Rendered shared/_down.html.haml (38251.6ms)
+  Rendered devise/_google.html.erb (1.4ms)
+  Rendered devise/registrations/_form_new.html.erb (75.4ms)
+  Rendered devise/registrations/_new.html.erb (79.2ms)
+  Rendered devise/_google.html.erb (0.2ms)
+  Rendered devise/sessions/_form_new.html.erb (23.8ms)
+  Rendered devise/sessions/_new.html.erb (27.6ms)
+  Rendered devise/_google.html.erb (0.1ms)
+  Rendered shared/_navbar.html.erb (127.3ms)
+Completed 200 OK in 40510ms (Views: 40234.3ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/assets/rails_bootstrap_forms.self-10cb7d2aef696c4062f219f6678eed1d57c254a6717cea25d021726a4b9a214c.css?body=1" for 172.21.0.1 at 2016-07-31 19:37:58 +0000
+
+
+Started GET "/assets/application.self-16f43dc579ea4d2f5f3d0043d5b55ccdd7bfabbfaa1c1bca82219aa044280369.css?body=1" for 172.21.0.1 at 2016-07-31 19:37:58 +0000
+
+
+Started GET "/assets/store.self-80889d8c5886dea33fa9522b0161a551ea78f0753d634dd7ff21b5791051bc96.css?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/core.self-93be4d22eda916787802a64d8f88b52db8a9027d4ccbbc0942625324a7d12d44.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/widget.self-c1602241ddc51216b58391768667068867b8e15b9efc722befcd25771eda6819.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/position.self-e693ced4ecfa1a276f0b794f32c1d30d792764b08788bf68ecfa3b388c291333.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/accordion.self-c95f320275150a94241b004a91e21eef9c5ae9965a793cb3e2475f6078a1670d.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/menu.self-7abc1c9401509a7e4fc609b1e461be6fd17e8116e8fda19cc59d05ba79aefb68.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/autocomplete.self-3befc48aba87cead090cfd014562b2771a662ac6d2c8197b24c08b2d9f3d9f2d.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/button.self-4d4f21ba77bbf8cc08ae65e2b6329a7a1b952b32c3ba7bffca8313e7e8c93d0c.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/datepicker.self-6267be6d4d0f0e8665be3b4d6ac07f40ba23a32aff8eaa5d1bfc00f76a9eeae7.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/mouse.self-c513294e8da73f31f84ba3ef11e2a1180a47faea0eb2fea4a53fc26153dd21fd.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/draggable.self-debcca3d0d5d9afe2fe91a6fd1aebdb41ca0a55f2f6017352e6c02b6d8a6e64c.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/resizable.self-60b870565f3cd62982c1907828119bb51f42ec8228d5e23868153edc3abc685c.js?body=1" for 172.21.0.1 at 2016-07-31 19:37:59 +0000
+
+
+Started GET "/assets/jquery-ui/dialog.self-5a6c7980dfa3f6b74445b0f4b20eed799ee65363163500ed7f032e603d6b022d.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/droppable.self-a7a2b4c2cec8fc176f51e4e4291d92bfd3eec40b6a580b47fc54c16334d52882.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect.self-3acdb29e7da09c8f0195b994d2f04d73bfef50dc539c84fd2c835d964d33e5c1.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-blind.self-ed102209d7aa0b7374f3db8478cc7dcff5f9980d3146e8bf9fbfab959c6d5d8a.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-bounce.self-bfcb9288797ecd234ddeedf4fbc5b4c9de94a4e6d8d44e6faa5b5e9836fad9fd.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-clip.self-7368e4597c32360b162d264ff8bbd0cf9fb1535eb9b4564e6eb7c1db3c774bf3.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-drop.self-294aaa72126ad9c94d6558cca792eb3716754713aca98f18a9dd7c493150ed92.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-explode.self-68e74dc114a52f3f4d7033e40c39196961bdcf439652daa2e98baa115c7bb44b.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-fade.self-42d542a5253e0a610717460102ee6bee339c656cc188e491d89eb0779043c963.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-fold.self-ad9967f153423916300dbf1104b00f7ad7bbd6a222a0fcc1012ebe251bcb13c8.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-highlight.self-f922b7179ab8ccfa7865141f38865bba0a3d2bdceba7561c27ca14544dbfd996.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-size.self-368aecefa09656a2be5c72dc8e685b120363a3df812134cbd2dd998bafa179fd.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-scale.self-884a5abcb6d90fcd9f9a071aa8329638184df688afced1b1d3b6be6c69f4dd7f.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-puff.self-93415831093923a70f671d73e8d0b3d94deb37ac7472a036a4add545f565c166.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:00 +0000
+
+
+Started GET "/assets/jquery-ui/effect-pulsate.self-eb107c0d136eccdfbd8a2f0f2ee71e0f6911cb300c6b63cc2fe4f6532e6a9a97.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui/effect-shake.self-63bcc14897aac5b84e10690be94d64d5724f864aa14c913b4d1030c461a256ad.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui/effect-slide.self-c93054a4a80d1f986760806d81ab067e4a4120bf103337e152ecc24d36e785f6.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui/effect-transfer.self-181245634ec522320fc1081f6dbf94fd982f34eefa03555f76817dedfcdea336.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui/progressbar.self-a259ff5a2a5e7aef0ec21bda94edd0f6bc1e9821128d901de415956edf212b0d.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui/selectable.self-42e53fc2f95211314e36a8094c42560f869c207f16d68cfc206aa37201dcdc03.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui/selectmenu.self-09dbcac573f0e508194bd9deff254db090889b380d030261857860309c0918e8.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui/slider.self-8af8d2a0661743ba88b4cfb99d5c8c874cfa3fc6528ae4e9252366b388def0b7.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui/sortable.self-df2d80a36f9dfbe0facc596ccd92af83ca50d38e4cd6a84810aaf5d40b8cd181.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui/spinner.self-3c8c95a7bc9c877d0f9c16789246bbedda6b8e8fbf5927951babdab775aed02e.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui/tooltip.self-38f04ac3a6c8fb2391ec6832b68845671cc9013a94371b7eb239478f4835eb73.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui/tabs.self-dc07b44bf1b926c8d28ccd2658e30933881e5329348caf70cf305c3943f6bbd7.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:01 +0000
+
+
+Started GET "/assets/jquery-ui.self-52111578aa54225c9ebfe06f78a62771020ee548bb27d62228ee3f5e6633969d.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:02 +0000
+
+
+Started GET "/assets/home.self-d2c41f701ba5ed12a30cd18b7ff1ef524098db0f7e0563f7d860946835b58a5e.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/films.self-77edc9145bc49d4af096615dec7725ed285d89f706f3ab20e85445d19981a696.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/angular.self-a3680fff57179d0080f9d5748ca2a23e287fbbf4425e8199ec882f4c37ff01f7.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/main.self-5a9daf7fb23ca396bac8c4d4cb7d720426f1d6f34873f9e762450e3ba4bf17d9.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/underscore.self-4b328e42c558197d5b99d7727cfcc60bac9763fad660651230e8baf93f6067ed.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/services/bookpost.self-2e06f0fbdb1cfe5fc5f11bb006b30777170d35e1147bcd2cabbc12b99c498bc2.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/services/postData.self-3aaa437bea8d1c66c528ee1b5e34714d935a94229a906b2c2ecc18850f59f8d3.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/angular-resource.self-88ae487fff5a9edd7d62e61640efc8d253afbb9017ca82499cb399d97c096010.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/angular-route.self-5bd44956da234b0544ac7fa1478e83a8c00aa024a29e67384a59df8cfc083a6b.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/angular-rails-templates.self-f00acf93f8ebbed6f4a3240dda77dd2db62e4fd74a94e846399ea352c5dd0b70.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/application.self-c900c37a1d8f83300de810726e5e4e681d3a684e498e4d1cac090e9c1906e9e4.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/store.self-33585d9efad28fcf680de32caab1f65804bcd4ea71f332517e91178fc6091839.js?body=1" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/function%20()%20%7B%20%20%20%20return%20%7B%20%20%20%20%20%20dataType:%20%22json%22,%20%20%20%20%20%20success:%20data(function()%20%7B%7D),%20%20%20%20%20%20error:%20xhr(function()%20%7B%20%20%20%20%20%20%20%20var%20errors;%20%20%20%20%20%20%20%20errors%20=%20$.parseJSON(xhr.responseText).errors;%20%20%20%20%20%20%7D)%20%20%20%20%7D;%20%20%7D" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+ActionController::RoutingError (No route matches [GET] "/function%20()%20%7B%20%20%20%20return%20%7B%20%20%20%20%20%20dataType:%20%22json%22,%20%20%20%20%20%20success:%20data(function()%20%7B%7D),%20%20%20%20%20%20error:%20xhr(function()%20%7B%20%20%20%20%20%20%20%20var%20errors;%20%20%20%20%20%20%20%20errors%20=%20$.parseJSON(xhr.responseText).errors;%20%20%20%20%20%20%7D)%20%20%20%20%7D;%20%20%7D"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/bundle/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (5.3ms)
+  Rendered /usr/local/bundle/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (38.9ms)
+
+
+Started GET "/assets/empty_shopping_cart.jpg" for 172.21.0.1 at 2016-07-31 19:38:03 +0000
+
+
+Started GET "/assets/shop/icon_fb.png" for 172.21.0.1 at 2016-07-31 19:38:04 +0000
+
+
+Started GET "/assets/shop/icon_in.png" for 172.21.0.1 at 2016-07-31 19:38:04 +0000
+
+
+Started GET "/assets/shop/icon_twitter.png" for 172.21.0.1 at 2016-07-31 19:38:04 +0000
+
+
+Started GET "/Image001.jpg" for 172.21.0.1 at 2016-07-31 19:38:04 +0000
+
+ActionController::RoutingError (No route matches [GET] "/Image001.jpg"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/bundle/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.8ms)
+  Rendered /usr/local/bundle/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (24.7ms)
+  Rendered /usr/local/bundle/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (10.4ms)
+  Rendered /usr/local/bundle/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.3ms)
+  Rendered /usr/local/bundle/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (237.7ms)
+
+
+Started GET "/assets/1.jpg" for 172.21.0.1 at 2016-07-31 19:38:04 +0000
+
+
+Started GET "/assets/2.png" for 172.21.0.1 at 2016-07-31 19:38:04 +0000
+
+
+Started GET "/assets/3.jpg" for 172.21.0.1 at 2016-07-31 19:38:04 +0000
+
+
+Started GET "/assets/4.jpeg" for 172.21.0.1 at 2016-07-31 19:38:04 +0000
+
+
+Started GET "/assets/5.jpeg" for 172.21.0.1 at 2016-07-31 19:38:04 +0000
+
+
+Started GET "/assets/shop/background.png" for 172.21.0.1 at 2016-07-31 19:38:05 +0000
+
+
+Started GET "/assets/6.jpg" for 172.21.0.1 at 2016-07-31 19:38:05 +0000
+
+
+Started GET "/assets/shop/heading_bg.png" for 172.21.0.1 at 2016-07-31 19:38:05 +0000

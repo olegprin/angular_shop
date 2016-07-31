@@ -1,0 +1,140 @@
+
+Blog = angular.module('Blog', ['ngRoute'])
+Blog.config(["$routeProvider", "$httpProvider", ($routeProvider, $httpProvider) ->
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+  $routeProvider
+    .when('/product/new', { templateUrl: '<%=asset_path("postNew.html")%>', controller: 'CreatePostCtrl' } )
+    .when('/product/:id', { templateUrl: '<%=asset_path("mainIndex.html")%>', controller: 'IndexCtrl' } )
+    .when('/post/:postId', { templateUrl: '<%=asset_path("postIndex.html")%>', controller: 'PostCtrl' } )
+    .otherwise({ templateUrl: '<%=asset_path("mainIndex.html")%>', controller: 'IndexCtrl' } )
+])
+
+Blog.controller('IndexCtrl', [
+  '$scope','$location','$http', 'postData', '$routeParams'
+  ($scope, $location, $http, postData, $routeParams) ->
+    
+    $scope.hide_create=true
+    $scope.show_update=false
+    $scope.vasa="olya" 
+    $scope.data=postData.data
+    postData.loadPost()
+    
+    $scope.viewPost = (postId)->
+      $location.url('/post/'+postId)
+    
+
+    $scope.createPost=->
+
+
+      postData.createPost($scope.formProduct)
+    
+    $scope.newPost = ->
+      $location.url('/product/new')
+    
+
+    $scope.deletePost= (value)->
+      postData.deletePost(value)
+    
+
+   
+    $scope.test=null
+    $scope.init=(valuename)->
+      $scope.test=valuename
+   
+    total_price=0
+    tovar_name=[]
+    $scope.buyProduct=(tovar)->  
+      
+      
+      tovar_name.push(tovar)
+      console.log(tovar_name)
+      $scope.tovar_name=tovar_name
+
+
+
+      total_price+=parseInt(tovar.price)
+      $scope.total=total_price
+      
+
+
+    $scope.editPost = (value)->
+      $scope.show_update=true
+      $scope.hide_create=false
+      $scope.formProduct=
+        newProductTitle: "name"
+        newProductContents: "description"  
+
+      
+      post=_.findWhere(postData.data.products, {id: parseInt(value)})
+      $scope.data.postId=post.id
+      $scope.formProduct.newProductTitle=post.title
+      $scope.formProduct.newProductContents=post.description 
+     
+      
+    
+
+
+
+    $scope.updatePost=(value)->
+      $scope.hide_create=true
+      $scope.show_update=false
+      postData.updatePost(value, $scope.formProduct)
+]);
+
+
+
+Blog.controller('CreatePostCtrl', [
+  '$scope','$location','$http', '$routeParams','postData'
+  ($scope, $location, $http, $routeParams, postData) ->
+    
+    $scope.formProduct=
+      newProductTitle: "name"
+      newProductContents: "name product"
+    
+    $scope.girl="olya"
+
+    $scope.createPost=->
+      postData.createPost($scope.formProduct)
+
+    $scope.clearPost=->
+      $scope.formProduct.newProductTitle=" "
+      $scope.formProduct.newProductContents=" "    
+
+]);
+
+
+
+Blog.controller('PostCtrl', [
+  '$scope','$location','$http', '$routeParams','postData'
+  ($scope, $location, $http, $routeParams, postData) ->
+
+      
+    $scope.data=
+      postData: postData.data
+      currentProduct: 
+        title: ' '
+        description: ' '
+        id: ' '
+    
+    postData.loadPost()
+    
+    $scope.data.postId=$routeParams.postId
+    $scope.girl="olya"
+
+
+    $scope.findArticle=->
+      post=_.findWhere(postData.data.products, {id: parseInt($scope.data.postId)})
+      $scope.data.currentProduct.id=post.id    
+      $scope.data.currentProduct.title=post.title
+      $scope.data.currentProduct.description=post.description
+      
+
+    $scope.findArticle()
+
+    $scope.deletePost= ->
+      postData.deletePost($scope.data.postId)
+
+    $scope.editPost= ->
+      postData.editPost($scope.data.postId)
+]);
+
