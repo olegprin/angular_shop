@@ -47,9 +47,10 @@ Blog.controller('IndexCtrl', [
       
       
       tovar_name.push(tovar)
-      console.log(tovar_name)
-      $scope.tovar_name=tovar_name
-
+      log=[ ]
+      angular.forEach tovar_name, (value, key) ->
+        log.push(value.id + " "+ value.title)
+        $scope.tovar = log
 
 
       total_price+=parseInt(tovar.price)
