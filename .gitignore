@@ -12,11 +12,9 @@
 Guardfile
 # Ignore all logfiles and tempfiles.
 
-log
+log/
 tmp/
 
-/log
-tmp
 
 /.idea
 /test
