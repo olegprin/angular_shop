@@ -13,11 +13,12 @@ Guardfile
 # Ignore all logfiles and tempfiles.
 
 log/
-tmp/
+
 
 
 /.idea
 /test
 /rspec
 config/database.yml
-config/secrets.yml
+config/secrets.ymltmp
+tmp
