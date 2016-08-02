@@ -43,14 +43,25 @@ Blog.controller('IndexCtrl', [
    
     total_price=0
     tovar_name=[]
+    cart=[]
+    count=0
+    
     $scope.buyProduct=(tovar)->  
-      
-      
-      tovar_name.push(tovar)
-      console.log(tovar_name)
-      $scope.tovar_name=tovar_name
-
-
+      present=false
+      if cart.length==0
+        cart.push(tovar)
+        
+      angular.forEach cart, (value, key) ->
+        if value.id==tovar.id    
+          count +=1
+          "count_product"+value.id=count
+          present=true
+      if present==false
+        count=1
+        cart.push(tovar)
+        console.log(cart)
+      $scope.cart = cart
+      $scope.count = count 
 
       total_price+=parseInt(tovar.price)
       $scope.total=total_price

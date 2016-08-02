@@ -7,11 +7,17 @@ mainIndex
     </ul>
   </div>
 </div>
-{{vasa}}
-ggg
-{{tovar_name}}
-{{total}}
-ggg
+
+<div class="row" ng-repeat="post in cart">
+      <h2><a ng-click="viewPost(post.id)"> {{ post.title }}</a></h2>
+      {{count_product+post.id}}
+      <p>{{ post.description }}</p>
+      <p>{{ post.price }}</p>
+      <button class="btn btn-default" ng-click="deletePost(post.id)">Delete</button>
+       <button class="btn btn-default" ng-click="buyProduct(post)">Buy</button>
+      <button class="btn btn-default" ng-click="editPost(post.id)">Edit</button>
+  </div>
+  
 <li><a ng-click="newPost()">New Post</a></li>
 <div class="container" style="margin-top: 40px">
   <h1 class="text-center">My blog</h1>
