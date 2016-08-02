@@ -12,8 +12,13 @@
 Guardfile
 # Ignore all logfiles and tempfiles.
 /log/*.log
+<<<<<<< HEAD
 log
 tmp/
+=======
+/log
+/tmp
+>>>>>>> 7ea4923b3884247be7694a9db3e62d91682ee241
 /.idea
 /test
 /rspec

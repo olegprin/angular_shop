@@ -9274,6 +9274,7 @@ Processing by ProductsController#data as JSON
   [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", 8]]
   [1m[36mProduct Load (1.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
 Completed 200 OK in 12ms (Views: 4.5ms | ActiveRecord: 1.6ms)
+<<<<<<< HEAD
 
 
 Started GET "/" for 172.21.0.1 at 2016-08-02 17:15:17 +0000
@@ -18334,3 +18335,5 @@ Started GET "/assets/jquery-ui/effect-drop.self-294aaa72126ad9c94d6558cca792eb37
 
 
 Started GET "/assets/jquery-ui/effect-explode.self-68e74dc114a52f3f4d7033e40c39196961bdcf439652daa2e98baa115c7bb44b.js?body=1" for 172.21.0.1 at 2016-08-02 21:28:27 +0000
+=======
+>>>>>>> 7ea4923b3884247be7694a9db3e62d91682ee241
