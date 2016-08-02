@@ -47,7 +47,7 @@ Blog.controller('IndexCtrl', [
     count=0
     
     $scope.buyProduct=(tovar)->  
-<<<<<<< HEAD
+
       present=false
       if cart.length==0
         cart.push(tovar)
@@ -63,16 +63,7 @@ Blog.controller('IndexCtrl', [
         console.log(cart)
       $scope.cart = cart
       $scope.count = count 
-=======
-      
-      
-      tovar_name.push(tovar)
-      log=[ ]
-      angular.forEach tovar_name, (value, key) ->
-        log.push(value.id + " "+ value.title)
-        $scope.tovar = log
 
->>>>>>> 7ea4923b3884247be7694a9db3e62d91682ee241
 
       total_price+=parseInt(tovar.price)
       $scope.total=total_price
