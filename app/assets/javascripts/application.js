@@ -17,7 +17,7 @@
 //= require bootstrap-sprockets
 //= require home
 //= require films
-
+//= require angular-cookies 
 //= require angular
 //= require main
 //= require underscore

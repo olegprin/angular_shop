@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  mount_devise_token_auth_for 'User', at: 'auth'
 
 
   resources :angulars
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get 'data' => "products#data"  
   put "voices/:increase_id" => "voices#increase", :as => "voices_increase"
@@ -59,7 +60,7 @@ resources :infos, :messagestoadministrators, :answerfrommoderators, :orders, :li
 
 
 
-  get '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+  #get '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
  
 

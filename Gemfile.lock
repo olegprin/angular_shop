@@ -53,6 +53,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     bootstrap_form (2.4.0)
+    bower-rails (0.10.0)
     builder (3.2.2)
     cancancan (1.15.0)
     capistrano (3.6.0)
@@ -99,6 +100,9 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise_token_auth (0.1.38)
+      devise (> 3.5.2, <= 4.2)
+      rails (< 6)
     diff-lcs (1.2.5)
     dynamic_sitemaps (2.0.0)
     erubis (2.7.0)
@@ -337,6 +341,7 @@ DEPENDENCIES
   angularjs-rails-resource
   bootstrap-sass
   bootstrap_form
+  bower-rails (~> 0.10.0)
   cancancan
   capistrano
   capistrano-bundler
@@ -346,6 +351,7 @@ DEPENDENCIES
   coffee-rails
   configurable_engine
   devise
+  devise_token_auth
   dynamic_sitemaps
   factory_girl_rails
   friendly_id

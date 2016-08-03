@@ -30,7 +30,11 @@ gem 'jquery-ui-rails'
 
 gem 'redcarpet'
 
+gem "bower-rails", "~> 0.10.0"
+gem 'devise_token_auth'
 gem 'devise'
+
+
 gem 'omniauth-google-oauth2', :require => "omniauth-google-oauth2"
 
 gem 'omniauth-oauth2', '~> 1.3.1'

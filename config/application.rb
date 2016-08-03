@@ -17,7 +17,7 @@ config.autoload_paths << "#{Rails.root}/lib"
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 config.action_controller.include_all_helpers = false
-
+config.assets.paths << Rails.root.join("vendor","assets","bower_components")
 config.time_zone = 'Moscow' # set default time zone to "Moscow" (UTC +4)
 config.i18n.default_locale = :ru # set default locale to Russian
 config.assets.debug = true

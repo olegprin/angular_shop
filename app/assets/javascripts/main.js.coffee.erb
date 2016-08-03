@@ -1,5 +1,11 @@
 
-Blog = angular.module('Blog', ['ngRoute'])
+Blog = angular.module('Blog', [
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
+    'ng-token-auth'])
 Blog.config(["$routeProvider", "$httpProvider", ($routeProvider, $httpProvider) ->
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
   $routeProvider
