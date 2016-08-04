@@ -11,18 +11,20 @@
 // about supported directives.
 //
 
-//= require jquery
-//= require jquery_ujs
-//= require jquery-ui
+// require jquery
+// require jquery_ujs
+// require jquery-ui
 //= require bootstrap-sprockets
-//= require home
-//= require films
-//= require angular-cookies 
+// require home
+// require films
+
 //= require angular
 //= require main
 //= require underscore
+//= require angular-cookies 
 //= require_tree ./services
-
+//= require angular-cookies
+//= require angular-devise
 //= require angular-resource
 //= require angular-route
 //= require angular-rails-templates

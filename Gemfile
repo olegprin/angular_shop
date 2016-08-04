@@ -8,7 +8,6 @@ gem 'sqlite3'
 
 gem 'uglifier'
 
-
 gem 'bootstrap_form'
 
 gem 'coffee-rails'
@@ -64,7 +63,9 @@ gem 'friendly_id'
 gem 'whenever', :require => false
 gem 'angularjs-rails'
 
-
+source "https://rails-assets.org" do
+  gem "rails-assets-angular-devise"
+end
 
 
 

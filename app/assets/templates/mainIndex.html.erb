@@ -1,4 +1,8 @@
-mainIndex
+<script src="/js/angular/angular.js"></script>
+<script src="/js/angular-cookie/angular-cookie.js"></script>
+<script src="/js/ng-token-auth/dist/ng-token-auth.js"></script>
+
+
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <a href="#" class="brand">My blog</a>
@@ -67,7 +71,8 @@ Show HTML: <input type="checkbox" ng-model="myVar">
 </div>
 
 
-
+<li ng-show="!user.id"><a ng-href="/sign_in">Sign in</a></li> 
+<li ng-show="user.id"><a ng-click='signOut()'>Sign out</a></li>
 
 <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
   <div class="form-group">
