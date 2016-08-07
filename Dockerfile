@@ -7,7 +7,7 @@ RUN apt-get install -y npm
 RUN npm install -g bower
 RUN bower install --save angular-devise
 RUN bower install --save ng-token-auth
-RUN bower install angular-cookies
+#RUN bower install angular-cookies
 RUN mkdir /myapp
 WORKDIR /myapp
 ADD Gemfile /myapp/Gemfile

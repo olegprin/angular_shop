@@ -1,6 +1,4 @@
-<script src="/js/angular/angular.js"></script>
-<script src="/js/angular-cookie/angular-cookie.js"></script>
-<script src="/js/ng-token-auth/dist/ng-token-auth.js"></script>
+
 
 
 <div class="navbar navbar-fixed-top">
@@ -97,3 +95,31 @@ Show HTML: <input type="checkbox" ng-model="myVar">
 
   <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
 </form>
+
+
+
+
+
+
+
+
+
+
+<body ng-app="AuthApp">
+
+  <div ng-controller="myCtrl">
+  {{currentUser}}
+
+  <input ng-model="email" type="text">
+  <input ng-model="password" type="text">
+  <button ng-click="login()">Log meh in</button>
+  <button ng-click="logOut()">Log meh out</button>
+
+  <div ng-repeat ="post in posts">
+    
+    {{post.title}}
+  </div>
+   
+   </div>
+</body>
+

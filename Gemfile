@@ -13,7 +13,7 @@ gem 'bootstrap_form'
 gem 'coffee-rails'
 
 gem 'jquery-rails'
-
+gem 'delayed_job'
 gem 'jbuilder'
 gem 'angularjs-rails-resource'
 
@@ -24,12 +24,12 @@ gem 'therubyracer'
 gem 'bootstrap-sass'
 gem 'sass-rails'
 
-gem 'underscore-rails'
+#gem 'underscore-rails'
 gem 'jquery-ui-rails'
 
 gem 'redcarpet'
 
-gem "bower-rails", "~> 0.10.0"
+gem "bower-rails"
 gem 'devise_token_auth'
 gem 'devise'
 
@@ -51,13 +51,13 @@ gem 'rake'
 
 gem 'configurable_engine'
 gem 'rails-i18n'
+#gem 'sprockets', '3.6.3'
+#gem 'sprockets', '3.7.0'
 
 
 
 
-
-
-gem 'angular-rails-templates'
+#gem 'angular-rails-templates'
 gem 'dynamic_sitemaps'
 gem 'friendly_id'
 gem 'whenever', :require => false
@@ -71,10 +71,12 @@ end
 
 group :development, :test do
   gem 'capistrano'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'rspec-rails'
   gem "capybara"
   gem 'factory_girl_rails'
-  gem "guard-rspec"
+  #gem "guard-rspec"
   gem 'capistrano-passenger'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
