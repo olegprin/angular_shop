@@ -30,7 +30,7 @@ gem 'jquery-ui-rails'
 gem 'redcarpet'
 
 gem "bower-rails"
-gem 'devise_token_auth'
+#gem 'devise_token_auth'
 gem 'devise'
 
 
@@ -63,9 +63,9 @@ gem 'friendly_id'
 gem 'whenever', :require => false
 gem 'angularjs-rails'
 
-source "https://rails-assets.org" do
-  gem "rails-assets-angular-devise"
-end
+#source "https://rails-assets.org" do
+  #gem "rails-assets-angular-devise"
+#end
 
 
 

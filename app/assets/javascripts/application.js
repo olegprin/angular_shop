@@ -21,13 +21,18 @@
 //= require angular
 //= require main
 
-//= require underscore
+// require underscore
 //= require angular-cookies 
 //= require_tree ./services
 
-//= require angular-devise
+// require angular-devise
 //= require angular-resource
 //= require angular-route
 // require angular-rails-templates
 //= require reg
 
+//= require services/sessionService
+//= require services/recordService
+//= require controllers/app
+//= require controllers/record
+//= require controllers/users

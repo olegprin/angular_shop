@@ -1,14 +1,14 @@
 class User < ActiveRecord::Base
-  # Include default devise modules.
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable,
           :confirmable, :omniauthable
-  include DeviseTokenAuth::Concerns::User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  
- devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,:omniauthable, :omniauth_providers => [:digitalocean,:google_oauth2, :facebook]
+
+
   after_create :user_first
         
 
