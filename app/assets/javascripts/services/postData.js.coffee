@@ -1,54 +1,56 @@
-angular.module('Blog').factory('postData', ['$http', ($http) ->
+angular.module('Blog').factory('postData', ['$http',  '$location', '$q', ($http, $location, $q) ->
 
  
   postData=
     data:
       products: [{title: 'Loading posts...', contents: ''}]
   
-  service = 
     login: (email, password) ->
       $http.post('/api/sessions', user:
         email: email
         password: password).then (response) ->
-        service.currentUser = response.data.user
-        if service.isAuthenticated()
+        postData.currentUser = response.data.user
+        if postData.isAuthenticated()
           #$location.path(response.data.redirect);
           $location.path '/record'
         return
     logout: (redirectTo) ->
       $http.delete('/api/sessions').then (response) ->
         $http.defaults.headers.common['X-CSRF-Token'] = response.data.csrfToken
-        service.currentUser = null
+        postData.currentUser = null
         redirect redirectTo
         return
       return
+    
+   
+
     register: (email, password, confirm_password) ->
-      $http.post('/api/users', user:
+      $http.post('./api/users.json', user:
         email: email
         password: password
         password_confirmation: confirm_password).then (response) ->
-        service.currentUser = response.data
-        if service.isAuthenticated()
+        postData.currentUser = response.data
+        if postData.isAuthenticated()
           $location.path '/record'
         return
     requestCurrentUser: ->
-      if service.isAuthenticated()
-        $q.when service.currentUser
+      if postData.isAuthenticated()
+        $q.when postData.currentUser
       else
         $http.get('/api/users').then (response) ->
-          service.currentUser = response.data.user
-          service.currentUser
+          postData.currentUser = response.data.user
+          postData.currentUser
     currentUser: null
+
     isAuthenticated: ->
-      ! !service.currentUser
-  # Redirect to the given url (defaults to '/')
+      !!postData.currentUser
 
   redirect = (url) ->
     url = url or '/'
     $location.path url
     return
 
-  service 
+
   postData.loadPost = ->
     $http.get('./data.json').success( (data) ->
       postData.data.products = data
