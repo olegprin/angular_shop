@@ -29,10 +29,10 @@
 //= require angular-resource
 //= require angular-route
 // require angular-rails-templates
-//= require reg
+// require reg
 
-//= require services/sessionService
-//= require services/recordService
-//= require controllers/app
-//= require controllers/record
-//= require controllers/users
+// require services/sessionService
+// require services/recordService
+// require controllers/app
+// require controllers/record
+// require controllers/users
