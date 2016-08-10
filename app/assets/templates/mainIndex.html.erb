@@ -81,7 +81,7 @@ Show HTML: <input type="checkbox" ng-model="myVar">
 
 
 
-
+<div ng-controller="UsersCtrl">
 <form name="registrationForm" class="auth-form">
     <h2 class="auth-form-heading">Sign up</h2><br/>
     <div class="alert alert-warning" ng-show="authReason">
@@ -95,3 +95,4 @@ Show HTML: <input type="checkbox" ng-model="myVar">
     <input type="password" class="input-block-level" placeholder="Confirm Password" ng-model="user.confirm_password" required><br/>
     <br/><a class="btn btn-large btn-primary" type="submit" ng-click="register(user)" ng-disabled="registrationForm.$invalid">Sign up</a>
 </form>
+</div>

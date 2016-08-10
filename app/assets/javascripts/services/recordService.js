@@ -1,4 +1,4 @@
-angular.module('Blogdd', ['ngResource'])
+angular.module('recordService', ['ngResource'])
     .factory('Records', function($resource) {
         return $resource('/api/record.json', {}, {
             index: { method: 'GET', isArray: true},

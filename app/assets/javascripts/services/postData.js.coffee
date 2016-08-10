@@ -5,51 +5,7 @@ angular.module('Blog').factory('postData', ['$http',  '$location', '$q', ($http,
     data:
       products: [{title: 'Loading posts...', contents: ''}]
   
-    login: (email, password) ->
-      $http.post('/api/sessions', user:
-        email: email
-        password: password).then (response) ->
-        postData.currentUser = response.data.user
-        if postData.isAuthenticated()
-          #$location.path(response.data.redirect);
-          $location.path '/record'
-        return
-    logout: (redirectTo) ->
-      $http.delete('/api/sessions').then (response) ->
-        $http.defaults.headers.common['X-CSRF-Token'] = response.data.csrfToken
-        postData.currentUser = null
-        redirect redirectTo
-        return
-      return
-    
    
-
-    register: (email, password, confirm_password) ->
-      $http.post('./api/users.json', user:
-        email: email
-        password: password
-        password_confirmation: confirm_password).then (response) ->
-        postData.currentUser = response.data
-        if postData.isAuthenticated()
-          $location.path '/record'
-        return
-    requestCurrentUser: ->
-      if postData.isAuthenticated()
-        $q.when postData.currentUser
-      else
-        $http.get('/api/users').then (response) ->
-          postData.currentUser = response.data.user
-          postData.currentUser
-    currentUser: null
-
-    isAuthenticated: ->
-      !!postData.currentUser
-
-  redirect = (url) ->
-    url = url or '/'
-    $location.path url
-    return
-
 
   postData.loadPost = ->
     $http.get('./data.json').success( (data) ->
