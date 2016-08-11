@@ -24,6 +24,10 @@
 // require underscore
 //= require angular-cookies 
 //= require_tree ./services
+//= require_tree ./controllers
+//= require controllers/record
+
+
 
 // require angular-devise
 //= require angular-resource

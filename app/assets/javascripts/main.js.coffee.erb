@@ -72,7 +72,10 @@ Blog.controller('IndexCtrl', [
     
     $scope.login = ->
       $location.url('/login')
-    
+
+    $scope.logup= ->
+      $location.url('/record')
+
     $scope.newPost = ->
       $location.url('/product/new')
     
@@ -199,6 +202,19 @@ Blog.controller('CreatePostCtrl', [
 ]);
 
 
+Blog.controller('RecordCtrl', [
+  '$scope', 'Session', 'Records'
+  ($scope, Session, Records) ->
+
+    $scope.user = Session.requestCurrentUser()
+    $scope.records = Records.index()
+
+    $scope.logout = ->
+      Session.logout()
+      return
+
+ 
+])
 
 Blog.controller('PostCtrl', [
   '$scope','$location','$http', '$routeParams','postData'

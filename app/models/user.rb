@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
 
-  after_create :user_first
+  #after_create :user_first
         
 
   has_many :products
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :messagestoadministrators
 
 
-  after_create :create_role_and_info
+  #after_create :create_role_and_info
    # after_create :send_notification
 
   ROLES = {0 => :guest, 1 => :user, 2 => :moderator, 3 => :admin}

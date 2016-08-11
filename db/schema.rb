@@ -128,6 +128,12 @@ ActiveRecord::Schema.define(version: 20160808115737) do
     t.datetime "updated_at",                                         null: false
   end
 
+  create_table "records", force: :cascade do |t|
+    t.string   "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "searches", force: :cascade do |t|
     t.integer  "year"
     t.string   "actor"
